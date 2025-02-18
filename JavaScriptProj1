@@ -1,0 +1,38 @@
+var score = 0;
+var lives = 3;
+onEvent("start_button", "click", function() {
+setScreen("game_screen");
+});
+onEvent("chaseNote", "click", function() {
+score = score + 1;
+setText("total_score", score);
+setPosition("chaseNote", randomNumber(50,280), randomNumber(50, 350));
+if (score == 20) {
+setScreen("win_screen");
+playSound("sound://category_instrumental/harpe_upscale_2.mp3", false);
+}
+});
+onEvent("background", "click", function() {
+lives = lives - 1;
+setText("number_lives", lives);
+if (lives == 0) {
+setScreen("lose_screen");
+playSound("sound://category_instrumental/digital_downscale_2.mp3", false);
+}
+});
+onEvent("playAgain_button", "click", function() {
+playSound("sound://category_instrumental/harpe_upscale_2.mp3", false);
+setScreen("game_screen");
+lives = 3;
+setText("number_lives", lives);
+score = 0;
+setText("total_score", score);
+});
+onEvent("tryAgain_button", "click", function() {
+playSound("sound://category_instrumental/digital_downscale_2.mp3", false);
+setScreen("game_screen");
+lives = 3;
+setText("number_lives", lives);
+score = 0;
+setText("total_score", score);
+});
