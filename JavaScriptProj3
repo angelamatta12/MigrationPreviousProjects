@@ -1,0 +1,101 @@
+onEvent("WrongButton1", "click", function(event) {
+console.log("OOPS, wrong button ;)!");
+setScreen("NOPEWrongButton");
+playSound("sound://category_instrumental/digital_music_2.mp3", false);
+});
+
+onEvent("WrongButton2", "click", function(event) {
+console.log("OOPS, wrong button ;)!");
+setScreen("NOPEWrongButton");
+playSound("sound://category_instrumental/digital_music_2.mp3", false);
+});
+
+onEvent("WrongButton3", "click", function(event) {
+console.log("OOPS, wrong button ;) !");
+setScreen("NOPEWrongButton");
+playSound("sound://category_instrumental/digital_music_2.mp3", false);
+});
+
+onEvent("WrongButton4", "click", function(event) {
+console.log("OOPS, wrong button ;)!");
+setScreen("NOPEWrongButton");
+playSound("sound://category_instrumental/digital_music_2.mp3", false);
+});
+
+onEvent("WrongButton5", "click", function(event) {
+console.log("OOPS, wrong button ;)!");
+setScreen("NOPEWrongButton");
+playSound("sound://category_instrumental/digital_music_2.mp3", false);
+});
+
+onEvent("RightButton1", "click", function(event) {
+console.log("RightButton1 clicked!");
+setScreen("QuizQ1");
+playSound("sound://category_instrumental/harpe_downscale_2.mp3", false);
+});
+
+onEvent("Wrongbutton5", "click", function(event) {
+console.log("OOPS, wrong button;)!");
+setScreen("NOPEWrongButton");
+playSound("sound://category_instrumental/digital_music_2.mp3", false);
+});
+
+onEvent("WrongButton6", "click", function(event) {
+console.log("OOPS, wrong button;)!");
+setScreen("NOPEWrongButton");
+playSound("sound://category_instrumental/digital_music_2.mp3", false);
+});
+
+onEvent("RightButton2", "click", function(event) {
+console.log("RightButton2 clicked!");
+setScreen("QuizQ2");
+playSound("sound://category_instrumental/harpe_downscale_2.mp3", false);
+});
+
+onEvent("WrongButton7", "click", function(event) {
+console.log("OOPS, wrong button :)!");
+setScreen("NOPEWrongButton");
+playSound("sound://category_instrumental/digital_music_2.mp3", false);
+});
+
+onEvent("WrongButton8", "click", function(event) {
+console.log("OOPS, wrong button :) !");
+setScreen("NOPEWrongButton");
+playSound("sound://category_instrumental/digital_music_2.mp3", false);
+});
+
+onEvent("WrongButton9", "click", function(event) {
+console.log("OOPS, wrong button:)!");
+setScreen("NOPEWrongButton");
+playSound("sound://category_instrumental/digital_music_2.mp3", false);
+});
+
+onEvent("RightButton3", "click", function(event) {
+console.log("RightButton3 clicked!");
+setScreen("CongratsScreen");
+playSound("sound://category_instrumental/harpe_downscale_2.mp3", false);
+});
+
+onEvent("WrongButton10", "click", function(event) {
+console.log("OOPS, wrong button:) !");
+setScreen("NOPEWrongButton");
+playSound("sound://category_instrumental/digital_music_2.mp3", false);
+});
+
+onEvent("WrongButton11", "click", function(event) {
+console.log("OOPS, wrong button :) !");
+setScreen("NOPEWrongButton");
+playSound("sound://category_instrumental/digital_music_2.mp3", false);
+});
+
+onEvent("HomeButton", "click", function(event) {
+console.log("HomeButton clicked!");
+setScreen("WelcomeScreen");
+playSound("sound://category_instrumental/harpe_downscale_2.mp3", false);
+});
+
+onEvent("button2", "click", function(event) {
+console.log("button2 clicked!");
+setScreen("WelcomeScreen");
+playSound("sound://category_instrumental/digital_music_2.mp3", false);
+});
