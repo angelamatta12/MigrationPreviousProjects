@@ -1,0 +1,116 @@
+var randButtonId;
+var currentPlayer = 1;
+var p1score = 0;
+var p2score = 0;
+setBoard();
+function setWinner(){
+if(p1score == 10|| p2score >= -3){
+showElement("player1Win_label");
+hideElement("player2Win_label");
+}
+else if (p2score == 10|| p1score >= -3) {
+showElement("player2Win_label");
+hideElement("player1Win_label");
+}
+}
+function checkGameover() {
+if (p1score == 10 || p1score == 10) {
+setScreen("gameOver_screen");
+} else if (p1score == -3 || p2score == -3){
+setScreen("gameOver_screen");
+}
+else{
+setScreen("gamePlay_screen");
+}
+setWinner();
+}
+function updateScoreBy(amt) {
+if (currentPlayer == 1) {
+p1score = p1score + amt;
+} else {
+p2score = p2score + amt;
+}
+setText("score1_label", p1score);
+setText("score2_label", p2score);
+}
+function switchPlayer(){
+if(currentPlayer==1){
+showElement("player2_highlight");
+hideElement("player1_highlight");
+currentPlayer=2;
+} else {
+showElement("player1_highlight");
+hideElement("player2_highlight");
+currentPlayer=1;
+}
+console.log("current player is: "+currentPlayer);
+}
+function checkCorrect(buttonId){
+console.log("Checking:" +buttonId);
+console.log("Correct button is:" +randButtonId);
+if (buttonId == randButtonId) {
+console.log("You got it Right!");
+updateScoreBy(1);
+}
+else{
+console.log("WRONG");
+updateScoreBy(-3);
+}
+setBoard();
+switchPlayer();
+checkGameover();
+}
+onEvent("button1", "click", function( ) {
+checkCorrect("button1");
+});
+onEvent("button2", "click", function( ) {
+checkCorrect("button2");
+});
+onEvent("button3", "click", function( ) {
+checkCorrect("button3");
+});
+onEvent("button4", "click", function( ) {
+checkCorrect("button4");
+});
+function setBoard() {
+randButtonId = "button" +randomNumber(1,4);
+var R = randomNumber(0,235);
+var G = randomNumber(0,235);
+var B = randomNumber(0,235);
+var color = rgb(R, G, B);
+R = R+20; //add 20 to current value of R
+G = G+20;
+B = B+20;
+var diffColor = rgb(R, G, B);
+setProperty("button1", "background-color", color);
+setProperty("button2", "background-color", color);
+setProperty(randButtonId, "background-color", diffColor);
+setProperty("button3", "background-color", color);
+setProperty("button4", "background-color", color);
+}
+var randButtonId;
+var currentPlayer = 1;
+var p1score = 0;
+var p2score = 0;
+setBoard();
+function setWinner(){
+if(p1score == 10|| p2score >= -3){
+showElement("player1Win_label");
+hideElement("player2Win_label");
+}
+else if (p2score == 10|| p1score >= -3) {
+showElement("player2Win_label");
+hideElement("player1Win_label");
+}
+}
+function checkGameover() {
+if (p1score == 10 || p1score == 10) {
+setScreen("gameOver_screen");
+} else if (p1score == -3 || p2score == -3){
+setScreen("gameOver_screen");
+}
+else{
+setScreen("gamePlay_screen");
+}
+setWinner();
+}
