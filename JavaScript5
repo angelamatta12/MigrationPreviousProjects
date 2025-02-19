@@ -1,0 +1,45 @@
+var favorite =
+["1","https://cdn.wallpapersafari.com/63/30/jXibQJ.jpg","https://pixelz.cc/wp-content/uploads/201
+7/11/colorful-abstract-uhd-4k-wallpaper.jpg","http://www.depthcore.com/img/artwork/echoes/493
+8_video_games.jpg"];
+var favoriteCounter = 1;
+setList();
+function updateDisplay (){
+setImageURL("favoriteDisplay",favorite[favoriteCounter] );
+}
+function next(){
+favoriteCounter++;
+updateDisplay();
+}
+function previous(){
+favoriteCounter=favoriteCounter-1;
+updateDisplay();
+}
+onEvent("screen1", "keydown", function(event ) {
+if (event.key == "Up") {
+next();
+} else if ((event.key == "Down")) {
+previous();
+}
+setList();
+});
+onEvent("nextFavorite", "click", function() {
+if (favoriteCounter!=(favorite.length-1)) {
+next();
+}
+setList();
+});
+onEvent("previousFavorite", "click", function( ) {
+if (favoriteCounter!=1) {
+previous();
+}
+setList();
+});
+onEvent("addFavoriteButton", "click", function( ) {
+insertItem(favorite,favoriteCounter,getText("entryFavorite"));
+setText("favoriteThingDisplay",favorite[favoriteCounter]);
+setText("favoriteCounter", favoriteCounter + " of " + (favorite.length-1));
+});
+function setList() {
+setText("favoriteCounter", (favoriteCounter + " of ") + (favorite.length-1));
+}
