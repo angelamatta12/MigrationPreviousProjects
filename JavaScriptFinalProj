@@ -1,0 +1,100 @@
+var score;
+var lives;
+var multiplier;
+var yarnCount;
+var mouseCount;
+var lasagnaCount;
+var yarnCost;
+var mouseCost;
+var lasagnaCost;
+resetGame();
+onEvent("start_button", "click", function() {
+updateScreen();
+setScreen("game_screen");
+});
+onEvent("grumpyCat", "click", function() {
+score = score + multiplier;
+updateScreen();
+setPosition("grumpyCat", randomNumber(50,280), randomNumber(50, 350));
+if (score > 1000000) {
+setScreen("win_screen");
+}
+});
+onEvent("background_game", "click", function() {
+lives = lives - 1;
+updateScreen();
+
+if (lives == 2) {
+setProperty("grumpyCat","width",80);
+} else if (lives == 1){
+setProperty("grumpyCat","width",60);
+} else if (lives == 0) {
+setScreen("lose_screen");
+}
+});
+onEvent("playAgain_button", "click", function() {
+resetGame();
+});
+onEvent("tryAgain_button", "click", function() {
+resetGame();
+});
+function resetGame(){
+setScreen("welcome_screen");
+startingValues();
+updateScreen();
+}
+function startingValues(){
+score = 1000;
+lives = 3;
+multiplier = 1;
+yarnCount = 0;
+mouseCount = 0;
+lasagnaCount = 0;
+yarnCost = 20;
+mouseCost = 100;
+lasagnaCost = 500;
+setProperty("grumpyCat","width",100);
+}
+function updateScreen(){
+setText("total_score", score);
+setText("number_lives", lives);
+setText("multiplier",multiplier);
+setText("number_Points",score);
+}
+
+// Pet store events
+onEvent("goToStore_button", "click", function() {
+setScreen("store_screen");
+setPrices();
+setVisibleItems();
+});
+onEvent("exitStore_button", "click", function() {
+setScreen("game_screen");
+});
+onEvent("buyYarn_button", "click", function() {
+purchase("yarn");
+});
+onEvent("buyMouse_button", "click", function() {
+purchase("mouse");
+});
+onEvent("buyLasagna_button", "click", function() {
+purchase("lasagna");
+});
+// Main algorithm, handles all purchasing behabior
+function purchase(item) {
+if((item == "yarn") && (yarnCost <= score)){
+score = score - yarnCost;
+yarnCount = yarnCount + 1;
+multiplier = multiplier + 2;
+} else if ((item == "mouse") && (mouseCost <= score)){
+score = score - mouseCost;
+mouseCount = mouseCount + 1;
+multiplier = multiplier + 10;
+} else if ((item == "lasagna") && (lasagnaCost <= score)){
+score = score - lasagnaCost;
+lasagnaCount = lasagnaCount + 1;
+multiplier = multiplier * 2;
+}
+setPrices();
+setVisibleItems();
+updateScreen();
